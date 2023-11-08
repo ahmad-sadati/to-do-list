@@ -29,11 +29,13 @@ function renderList() {
     let myClass = "";
     val.done ? (myClass = "taskDone") : (myClass = "");
     helper += `<li class="${myClass}" onclick="complete(${index})" role='button'>${val.title} |
-     ${val.date}<button class="">Edit</button><button name="deleteButton" onclick="remove(${index})">Delete</button></li>`;
+     ${val.date}</li><button class="">Edit</button><button name="deleteButton" onclick="remove(${index})">Delete</button>`;
   });
   taskListShow.innerHTML = helper;
 }
 function remove(index) {
+  console.log(index);
   taskList.splice(index, 1);
   console.log("ok");
+  renderList();
 }
